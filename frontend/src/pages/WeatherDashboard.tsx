@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import WeatherCard from "../components/WeatherCard";
 import Header from "../components/Header";
+import type { WeatherData } from "../types/weather";
+import WeatherDetail from "./WeatherDetail";
 
 export default function Dashboard() {
   const [cities, setCities] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState<WeatherData | null>(null);
 
   useEffect(() => {
     axios
@@ -15,6 +18,10 @@ export default function Dashboard() {
       .finally(() => setLoading(false));
   }, []);
 
+  if (selected) {
+    return <WeatherDetail city={selected} onBack={() => setSelected(null)} />;
+  }
+
   if (loading)
     return <div className="mt-20 text-center text-white">Loading…</div>;
 
@@ -23,12 +30,12 @@ export default function Dashboard() {
       <Header />
       <div className="grid grid-cols-1 gap-4 mx-auto mb-6 max-w-7xl md:grid-cols-2 sm:gap-6 sm:mb-8">
         {cities.map((city, i) => (
-          <WeatherCard key={i} city={city} />
+          <WeatherCard key={i} city={city} onSelect={() => setSelected(city)} />
         ))}
       </div>
 
       <p className="text-xs text-center text-gray-400 sm:text-sm">
-       @kavindu Wickramasinghe
+        @kavindu Wickramasinghe
       </p>
     </div>
   );
