@@ -97,7 +97,7 @@ export default function WeatherDetail({ city, onBack }: WeatherDetailProps) {
         </div>
 
         <p className="mt-6 text-xs text-center text-gray-400 sm:text-sm sm:mt-8">
-          2021 Fidenz Technologies
+          @Kavindu Wickramasinghe
         </p>
       </div>
     </div>
