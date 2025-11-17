@@ -4,7 +4,7 @@ This guide explains how to set up and run the Weather App locally, including bot
 
 📥 1. Clone the Repository
 git clone https://github.com/kavindu9611/weather-app.git
-cd weather-app
+
 
 🎨 2. Frontend Setup
 
