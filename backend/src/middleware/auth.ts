@@ -1,5 +1,4 @@
-// backend/src/middleware/auth.ts
-import { expressjwt } from "express-jwt"; // ← CORRECT: named import
+import { expressjwt } from "express-jwt";
 import jwksRsa from "jwks-rsa";
 import { Request, Response, NextFunction } from "express";
 
@@ -8,9 +7,9 @@ const checkJwt = expressjwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https:///.well-known/jwks.json`,
+    jwksUri: `https://dev-zdkigftaz2v0bnvz.us.auth0.com/.well-known/jwks.json`,
   }),
-  audience: process.env.AUTH0_AUDIENCE || 'https://weather-api.fidenz.com',
+  audience: process.env.AUTH0_AUDIENCE,
   issuer: `https://dev-zdkigftaz2v0bnvz.us.auth0.com/`,
   algorithms: ["RS256"],
 });
@@ -22,9 +21,10 @@ export default function authMiddleware(
 ) {
   checkJwt(req, res, (err: any) => {
     if (err) {
+      console.error("JWT ERROR:", err);
       return res.status(401).json({
         error: "Invalid or missing token",
-        message: err.message,
+        details: err.message,
       });
     }
     next();
