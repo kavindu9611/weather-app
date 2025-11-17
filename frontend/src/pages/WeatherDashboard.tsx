@@ -77,7 +77,7 @@ export default function Dashboard() {
     return <div className="mt-20 text-center text-white">Loading…</div>;
 
   return (
-    <div className="min-h-screen p-4 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 sm:p-6">
+    <div className="min-h-screen p-4 bg-gradient-to-br from-blue-500 via-blue-600 to-slate-800 sm:p-6">
       <Header />
       <div className="grid grid-cols-1 gap-4 mx-auto mb-6 max-w-7xl md:grid-cols-2 sm:gap-6 sm:mb-8">
         {cities.map((city, i) => (
@@ -86,7 +86,7 @@ export default function Dashboard() {
       </div>
 
       <p className="text-xs text-center text-gray-400 sm:text-sm">
-        2021 Fidenz Technologies
+        @Kavindu Wickramasinghe
       </p>
     </div>
   );
