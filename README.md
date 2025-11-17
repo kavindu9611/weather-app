@@ -1,55 +1,62 @@
 Weather App — Setup Guide
 
-This document provides instructions for setting up and running the Weather App locally.
+This guide explains how to set up and run the Weather App locally, including both the frontend and backend.
 
-1. Clone the Repository
+📥 1. Clone the Repository
 git clone https://github.com/kavindu9611/weather-app.git
+cd weather-app
 
-2. Install Frontend Dependencies
+🎨 2. Frontend Setup
 
 Navigate to the frontend directory:
 
-cd weather-app
 cd frontend
+
+
+Install frontend dependencies:
+
 npm install
 
-3. Install Backend Dependencies
 
-Return to the project root and navigate to the backend directory:
+Start the frontend server:
 
-cd ..
-cd backend
+npm run dev
+
+
+The frontend should now be running at http://localhost:3000.
+
+🗂️ 3. Backend Setup
+
+Navigate to the backend directory:
+
+cd ../backend
+
+
+Install backend dependencies:
+
 npm install
 
-4. Configure Environment Variables
 
-Inside the backend directory, create a .env file and add the following:
+Create a .env file inside the backend folder and add:
 
 PORT=5000
 
-5. Start the Frontend Application
 
-Navigate back to the frontend directory and run:
+Start the backend server:
 
-cd ../frontend
 npm run dev
 
 
-This will start the frontend development server.
+The backend should now be running at http://localhost:5000.
 
-6. Start the Backend Server
+✅ 4. Verify Setup
 
-Open a new terminal window or return to the backend directory:
+Make sure both frontend and backend servers are running.
 
-cd ..
-cd backend
-npm run dev
+Open your browser at http://localhost:3000 to check the app.
 
+🆘 5. Support
 
-The backend server will start on the port specified in the .env file.
-
-Support
-
-If you encounter any issues during setup, please contact:
+If you experience any issues during setup, contact:
 
 Email: kavinduwickramasinghe1920@gmail.com
